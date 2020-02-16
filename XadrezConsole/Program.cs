@@ -7,15 +7,24 @@ namespace ChessConsole {
         static void Main(string[] args) {
             //padrao de camadas - tabuleiro, jogo de xadrez, aplicação
             try {
-                Board board = new Board(8, 8);
+                ChessMatch match = new ChessMatch();
 
-                board.InsertPiece(new Tower(board, Color.Preta), new Position(0, 0));
-                board.InsertPiece(new Tower(board, Color.Preta), new Position(1, 3));
-                board.InsertPiece(new King(board, Color.Preta), new Position(0, 2));
+                while (!match.Finish) {
+                    Console.Clear();
+                    Screen.printTray(match.board);
 
-                board.InsertPiece(new Tower(board, Color.Branca), new Position(3, 5));
+                    Console.Write("\nOrigem: ");
+                    Position origin = Screen.ReadChessPosition().ToPosition();
 
-                Screen.printTray(board);
+                    Console.Write("\nDestino: ");
+                    Position destiny = Screen.ReadChessPosition().ToPosition();
+
+                    match.Move(origin, destiny);
+
+                }
+
+
+
 
             } catch (BoardException e) {
                 Console.WriteLine(e.Message);

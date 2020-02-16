@@ -12,5 +12,10 @@
             Moves = 0;
 
         }
+
+        public void IncrementMoves() {
+            Moves++;
+
+        }
     }
 }
