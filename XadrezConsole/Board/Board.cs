@@ -16,9 +16,43 @@
 
         }
 
+        public Piece Piece(Position pos) {
+            return Pieces[pos.Row, pos.Column];
+
+        }
+
+        public bool PieceExist(Position pos) {
+            CheckPosition(pos);
+            return Piece(pos) != null;
+
+        }
+
         public void InsertPiece(Piece p, Position pos) {
+            if (PieceExist(pos)) {
+                throw new BoardException("Já existe uma peça nessa posição.");
+
+            }
+
             Pieces[pos.Row, pos.Column] = p;
             p.Position = pos;
+
+        }
+
+        public bool PositionIsOk(Position pos) {
+            if (pos.Row < 0 || pos.Row >= Rows || pos.Column < 0 || pos.Column >= Columns) {
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+        public void CheckPosition(Position pos) {
+            if (!PositionIsOk(pos)) {
+                throw new BoardException("Posição inválida.");
+
+            }
 
         }
 
