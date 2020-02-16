@@ -5,10 +5,10 @@
         public int Moves { get; protected set; }
         public Board Board { get; protected set; }
 
-        public Piece(Position position, Color color, Board board) {
-            Position = position;
-            Color = color;
+        public Piece(Board board, Color color) {
+            Position = null;
             Board = board;
+            Color = color;
             Moves = 0;
 
         }
