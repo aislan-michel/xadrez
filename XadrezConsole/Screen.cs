@@ -1,7 +1,7 @@
 ﻿using System;
 using board;
 
-namespace XadrezConsole {
+namespace ChessConsole {
     class Screen {
         public static void printTray(Board board) {
 

@@ -1,6 +1,6 @@
 ﻿using board;
 
-namespace xadrez {
+namespace chess {
     class King : Piece {
         public King(Board board, Color color) : base(board, color) {
             
