@@ -1,16 +1,14 @@
 ﻿using System;
-using Board;
+using board;
 
 namespace XadrezConsole {
     class Program {
         static void Main(string[] args) {
-
             //padrao de camadas - tabuleiro, jogo de xadrez, aplicação
-            Position P;
+            Board board = new Board(8, 8);
 
-            P = new Position(3, 4);
+            Screen.printTray(board);
 
-            Console.WriteLine(P);
         }
     }
 }
